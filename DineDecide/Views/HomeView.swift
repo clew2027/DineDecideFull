@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(LocationManager.self) private var locationManager: LocationManager
     @State private var maxPriceLevel = 3
     @State private var selectedCuisine = "Any"
     @State private var minRating = 0.0
@@ -17,6 +18,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: 28) {
+                Text(locationManager.getUserLocationString())
 
                 Spacer(minLength: 30)
 

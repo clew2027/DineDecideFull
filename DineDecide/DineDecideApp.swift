@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct DineDecideApp: App {
+    @State private var locationManager = LocationManager()
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environment(locationManager)
+                .onAppear {
+                    locationManager.requestLocation()
+                }
         }
     }
 }
